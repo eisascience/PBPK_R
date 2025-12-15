@@ -1,0 +1,22 @@
+Package: PBPKR
+Type: Package
+Title: Physiologically-Based Pharmacokinetic Model for THC and CBD
+Version: 0.1.0
+Authors@R: person("Eisa", "Mahyari", email = "eisa@example.com", role = c("aut", "cre"))
+Description: A Shiny-based interactive PBPK modeling application for simulating 
+    the pharmacokinetics of THC and CBD following inhalation. The package provides
+    tools to define model parameters, run simulations, and visualize predictions
+    for cannabinoid disposition in various tissue compartments.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 3.5.0)
+Imports:
+    shiny (>= 1.7.0),
+    deSolve (>= 1.28),
+    ggplot2 (>= 3.3.0),
+    shinydashboard (>= 0.7.0),
+    DT (>= 0.18),
+    plotly (>= 4.9.0)
+RoxygenNote: 7.1.1

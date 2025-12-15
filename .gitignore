@@ -1,0 +1,35 @@
+# R specific
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Build artifacts
+*.tar.gz
+*.zip
+
+# Temporary files
+*~
+*.swp
+*.swo
+.DS_Store
+
+# R package build
+/Meta/
+/doc/
+/src/*.o
+/src/*.so
+/src/*.dll
+
+# Shiny temp files
+rsconnect/
+
+# Example outputs
+examples/*.png
+examples/*.csv
+examples/*.pdf
+
+# R CMD check artifacts
+*.Rcheck/
+.Rcheck/
