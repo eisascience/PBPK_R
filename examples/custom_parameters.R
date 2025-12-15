@@ -6,9 +6,21 @@
 library(deSolve)
 library(ggplot2)
 
-# Source the model functions (if package not installed)
-source("../R/pbpk_model.R")
-source("../R/simulate_pbpk.R")
+# Try to load from package, otherwise source files
+if (requireNamespace("PBPKR", quietly = TRUE)) {
+  library(PBPKR)
+} else {
+  # Source the model functions (if package not installed)
+  if (file.exists("../R/pbpk_model.R")) {
+    source("../R/pbpk_model.R")
+    source("../R/simulate_pbpk.R")
+  } else if (file.exists("R/pbpk_model.R")) {
+    source("R/pbpk_model.R")
+    source("R/simulate_pbpk.R")
+  } else {
+    stop("Could not find model files. Please run from package root or examples directory.")
+  }
+}
 
 cat("=== Custom Parameters Example ===\n\n")
 

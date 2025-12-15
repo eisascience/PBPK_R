@@ -4,7 +4,9 @@ library(plotly)
 library(deSolve)
 
 # Source the model functions if not loaded from package
-if (!exists("pbpk_model")) {
+if (!exists("pbpk_model", mode = "function") || 
+    !exists("simulate_pbpk", mode = "function") ||
+    !exists("get_default_params", mode = "function")) {
   source("../../R/pbpk_model.R")
   source("../../R/simulate_pbpk.R")
 }

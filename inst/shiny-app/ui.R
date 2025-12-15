@@ -198,7 +198,7 @@ ui <- dashboardPage(
             hr(),
             p("Package: PBPKR v0.1.0"),
             p("License: MIT"),
-            p(tags$a(href = "https://github.com/eisascience/PBPK_R", "GitHub Repository", target = "_blank"))
+            p(tags$a(href = "https://github.com/eisascience/PBPK_R", "GitHub Repository", target = "_blank", rel = "noopener noreferrer"))
           )
         )
       )

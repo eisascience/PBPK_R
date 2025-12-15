@@ -68,6 +68,8 @@ pbpk_model <- function(t, state, parameters) {
     
     # Differential equations for THC
     # Lung compartment
+    # Note: Model assumes instantaneous equilibrium between lung tissue and arterial blood
+    # This simplification is appropriate for volatile compounds with rapid absorption
     dA_lung_thc <- R_inh_thc - Q_lung * (C_lung_thc / Kp_lung_thc - C_ven_thc)
     
     # Arterial blood

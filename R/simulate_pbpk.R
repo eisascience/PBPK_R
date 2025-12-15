@@ -40,6 +40,9 @@ simulate_pbpk <- function(params, times = seq(0, 24, by = 0.1)) {
   out_df$C_fat_thc <- out_df$A_fat_thc / params$V_fat
   out_df$C_muscle_thc <- out_df$A_muscle_thc / params$V_muscle
   out_df$C_liver_thc <- out_df$A_liver_thc / params$V_liver
+  out_df$C_kidney_thc <- out_df$A_kidney_thc / params$V_kidney
+  out_df$C_lung_thc <- out_df$A_lung_thc / params$V_lung
+  out_df$C_other_thc <- out_df$A_other_thc / params$V_other
   
   out_df$C_arterial_cbd <- out_df$A_art_cbd / params$V_art
   out_df$C_venous_cbd <- out_df$A_ven_cbd / params$V_ven
@@ -47,6 +50,9 @@ simulate_pbpk <- function(params, times = seq(0, 24, by = 0.1)) {
   out_df$C_fat_cbd <- out_df$A_fat_cbd / params$V_fat
   out_df$C_muscle_cbd <- out_df$A_muscle_cbd / params$V_muscle
   out_df$C_liver_cbd <- out_df$A_liver_cbd / params$V_liver
+  out_df$C_kidney_cbd <- out_df$A_kidney_cbd / params$V_kidney
+  out_df$C_lung_cbd <- out_df$A_lung_cbd / params$V_lung
+  out_df$C_other_cbd <- out_df$A_other_cbd / params$V_other
   
   return(out_df)
 }
@@ -75,6 +81,11 @@ get_default_params <- function(BW = 70) {
   V_ven <- 0.055 * BW      # L (5.5% of BW - venous blood)
   V_other <- BW - (V_fat + V_muscle + V_liver + V_kidney + V_brain + 
                    V_lung + V_art + V_ven)
+  
+  # Validate that remaining volume is positive
+  if (V_other <= 0) {
+    stop("Sum of tissue volumes exceeds body weight. Check volume parameters.")
+  }
   
   # Blood flow rates (L/hr) - Cardiac output = 5 L/min = 300 L/hr
   CO <- 300  # Cardiac output (L/hr)
