@@ -24,3 +24,12 @@
 
 # Shiny temp files
 rsconnect/
+
+# Example outputs
+examples/*.png
+examples/*.csv
+examples/*.pdf
+
+# R CMD check artifacts
+*.Rcheck/
+.Rcheck/
